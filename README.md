@@ -3,3 +3,4 @@
 # 라이브러리
 
 1. styled-component
+2. axios
