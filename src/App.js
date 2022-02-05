@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Wrapper } from "./styled/common.js";
 
-function App() {
+const COUNTRY = ["한국", "일본", "필리핀"];
+const CODES = {
+  한국: "KRW",
+  일본: "JPY",
+  필리핀: "PHP",
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper className="App">
+      <div className="title">환율 계산</div>
+      <div className="sub">송금국가: 미국(USD)</div>
+      <div className="sub">
+        수취국가:{" "}
+        <select>
+          {COUNTRY.map((country) => (
+            <option>{`${country}(${CODES[country]})`}</option>
+          ))}
+        </select>
+      </div>
+      <div className="sub">환율: 1,119.93 KRW/USD</div>
+      <div className="sub">
+        송금액: <input type="number"></input> USD
+      </div>
+    </Wrapper>
   );
-}
+};
 
 export default App;
